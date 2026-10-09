@@ -1,0 +1,180 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    --background: #f5f7f6;
+    --foreground: #172d32;
+    --card: #ffffff;
+    --card-foreground: #172d32;
+    --popover: #ffffff;
+    --popover-foreground: #172d32;
+    --primary: #087f76;
+    --primary-foreground: #ffffff;
+    --secondary: #e7f2ef;
+    --secondary-foreground: #175b54;
+    --muted: #edf1ef;
+    --muted-foreground: #617478;
+    --accent: #e7f2ef;
+    --accent-foreground: #175b54;
+    --destructive: #c63949;
+    --destructive-foreground: #ffffff;
+    --border: #dde5e2;
+    --input: #d2deda;
+    --ring: #087f76;
+    --chart-1: #087f76;
+    --chart-2: #4996ac;
+    --chart-3: #c78a3b;
+    --chart-4: #8174b0;
+    --chart-5: #729a76;
+    --radius: 0.75rem;
+    --sidebar: #132e32;
+    --sidebar-foreground: #e6efed;
+    --sidebar-primary: #81e0c6;
+    --sidebar-primary-foreground: #132e32;
+    --sidebar-accent: #25464a;
+    --sidebar-accent-foreground: #c4f3e4;
+    --sidebar-border: #315054;
+    --sidebar-ring: #81e0c6;
+}
+
+.dark {
+    --background: #0f1d21;
+    --foreground: #e6efed;
+    --card: #17292e;
+    --card-foreground: #e6efed;
+    --popover: #17292e;
+    --popover-foreground: #e6efed;
+    --primary: #81e0c6;
+    --primary-foreground: #132e32;
+    --secondary: #23433f;
+    --secondary-foreground: #c4f3e4;
+    --muted: #203238;
+    --muted-foreground: #a0b7b8;
+    --accent: #23433f;
+    --accent-foreground: #c4f3e4;
+    --destructive: #f28c98;
+    --destructive-foreground: #30161b;
+    --border: #30464b;
+    --input: #3d555a;
+    --ring: #81e0c6;
+}
+
+@layer base {
+    * { @apply border-border; }
+    body { @apply bg-background text-foreground; min-height: 100vh; }
+    html { scroll-behavior: smooth; }
+    h1, h2, h3 { text-wrap: balance; }
+    button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+    ::selection { background: #087f7630; }
+}
+
+@layer utilities {
+    .research-surface {
+        background: var(--card);
+        border-color: var(--border);
+        box-shadow: 0 2px 5px #102e3210;
+    }
+    .research-grid {
+        background-image: linear-gradient(to right, #087f7607 1px, transparent 1px),
+            linear-gradient(to bottom, #087f7607 1px, transparent 1px);
+        background-size: 28px 28px;
+    }
+    .glass-card { background: var(--card); border: 1px solid var(--border); }
+    .brand-gradient { background: linear-gradient(135deg, #087f76, #144b58); }
+    .brand-gradient-text { color: var(--primary); }
+    .animate-enter { animation: research-enter 350ms ease-out both; }
+    .animate-enter-delay-1 { animation: research-enter 350ms 50ms ease-out both; }
+    .animate-enter-delay-2 { animation: research-enter 350ms 100ms ease-out both; }
+    .animate-enter-delay-3 { animation: research-enter 350ms 150ms ease-out both; }
+    .animate-soft-pulse { animation: research-pulse 2.4s ease-in-out infinite; }
+    .dashboard-hero {
+        background: #e8f2ed;
+        border-color: #ccdfd6;
+        box-shadow: none;
+    }
+    .dark .dashboard-hero { background: #193d39; border-color: #305c53; }
+    .workspace-map { background: var(--card); box-shadow: 0 12px 30px #153b3210; }
+    .project-card { border-top: 3px solid var(--primary); }
+}
+
+[data-sidebar="sidebar"] { background: var(--sidebar); }
+[data-slot="sidebar-group-label"] { color: #9cb8b9; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+[data-slot="sidebar-menu-button"] { min-height: 42px; border-radius: 8px; }
+[data-slot="sidebar-menu-button"][data-active="true"] { box-shadow: inset 3px 0 #81e0c6; }
+[data-slot="sidebar"] [data-slot="avatar"] { background: #315054; color: #e6efed; }
+[data-slot="sidebar"] .text-muted-foreground { color: #a8c0c1; }
+
+@keyframes research-enter {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes research-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

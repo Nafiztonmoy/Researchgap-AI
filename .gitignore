@@ -1,0 +1,16 @@
+﻿
+.env
+.env.*
+!.env.example
+.venv/
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+/web/public/hot
+/web/public/build/
+/web/storage/*.key
+/web/storage/logs/*
+/web/storage/app/private/*
+/web/storage/app/public/*
+/web/database/*.sqlite*
